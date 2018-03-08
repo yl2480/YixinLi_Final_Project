@@ -75,8 +75,8 @@ const lookupIndustry = function(Industry) {
     }
   case 'Electronics Store':
     return {
-        color: "#FF4500",
-        description: 'Electronics Store'
+      color: "#FF4500",
+      description: 'Electronics Store'
     }
   default:
     return {
@@ -103,13 +103,13 @@ $.getJSON('data/dots.geojson', function(dots) {
 			return L.circleMarker(latlng, {
 
         color: '#cdcdcd',
-        opacity: 0.75,
+        opacity: 1,
         weight: 1,
 				// opacity: 0,
 
         // Fill properties
         fillColor: lookupIndustry(feature.properties.Industry).color,
-        fillOpacity: 0.75,
+        fillOpacity: 1,
         radius: 4
       });
 		},
