@@ -10,16 +10,16 @@ height: 800px;
    background: #FFF;
    padding: 12px;
    border-radius: 7px;
-   height: 210px;
+   height: 200px;
    width: 550px;
  }
 
 #legend {
   float: right;
   background: #e6e6e6;
-  padding: 10px;
-  margin-left: 15px;
-  z-index: 1000;
+  padding: 5px;
+  margin-left: 20px;
+  z-index: 900;
 }
 
 .colorBox {
