@@ -15,17 +15,27 @@ const lookupIndustry = function(Industry) {
   switch(Industry) {
   case 'Secondhand Dealer - General':
     return {
-      color: "#f4f455",
+      color: "#FFFF00",
       description: 'Secondhand Dealer - General'
     }
-    case 'Secondhand Dealer - Auto':
-      return {
-        color: "#f4f455",
-        description: 'Secondhand Dealer - Auto'
-      }
+	case 'Second hand Dealer - General':
+		return {
+			color: "#FFFF00",
+			description: 'Secondhand Dealer - General'
+		}
+  case 'Secondhand Dealer - Auto':
+    return {
+      color: "#FFFF00",
+      description: 'Secondhand Dealer - Auto'
+    }
+	case 'Second hand Dealer - Auto':
+		return {
+			color: "#FFFF00",
+			description: 'Secondhand Dealer - Auto'
+		}
   case 'Cigarette Retail Dealer':
     return {
-      color: "#f7d496",
+      color: "#7FFFD4",
       description: 'Cigarette Retail Dealer'
     }
   case 'Parking Lot':
@@ -34,43 +44,43 @@ const lookupIndustry = function(Industry) {
       description: 'Parking Lot'
     }
   case 'Garage and Parking Lot':
-      return {
-        color: "#d36ff4f",
-        description: 'Garage and Parking Lot'
-      }
-  case 'Home Improvement Contractor':
     return {
-      color: "#f7cab",
+        color: "#d36ff4",
+        description: 'Garage and Parking Lot'
+    }
+  case 'Home Improvement Contractor':
+     return {
+      color: "#5CA2D1",
       description: 'Home Improvement Contractor'
     }
   case 'Stoop Line Stand':
-    return {
-      color: "#ea6661",
+     return {
+      color: "#C71585",
       description: 'Stoop Line Stand'
     }
   case 'Laundry':
-    return {
-      color: "#dac0e8",
+     return {
+      color: "#2E8B57",
       description: 'Laundry'
     }
-    case 'Laundries':
-      return {
-        color: "#dac0e8",
-        description: 'Laundries'
-      }
+  case 'Laundries':
+     return {
+      color: "#2E8B57",
+      description: 'Laundry'
+    }
   case 'Electronic & Appliance Service':
     return {
-      color: "#5CA2D1",
+      color: "#FF4500",
       description: 'Electronic & Appliance Service'
     }
-case 'Electronics Store':
-      return {
-        color: "#5CA2D1",
+  case 'Electronics Store':
+    return {
+        color: "#FF4500",
         description: 'Electronics Store'
-      }
+    }
   default:
     return {
-      color: "black",
+      color: "#cdcdcd",
       description: 'Others'
     }
   }
@@ -91,15 +101,16 @@ $.getJSON('data/dots.geojson', function(dots) {
 	var dotsGeojson = L.geoJSON(dots,{
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng, {
-        // Stroke properties
+
         color: '#cdcdcd',
         opacity: 0.75,
         weight: 1,
+				// opacity: 0,
 
         // Fill properties
         fillColor: lookupIndustry(feature.properties.Industry).color,
         fillOpacity: 0.75,
-        radius: 5
+        radius: 4
       });
 		},
 		onEachFeature: function(feature, layer) {
@@ -130,48 +141,3 @@ $.getJSON('data/dots.geojson', function(dots) {
 	 }
 	}).addTo(map);
 })
-
-//
-// $.getJSON('data/dots.geojson', function(dots) {
-//   L.geoJSON(dots, {
-//     onEachFeature:function (feature, layer)
-//     map.bindPopup(feature.properties.Industry);
-//   },
-//   pointToLayer: function (feature, Industry) {
-//                             return L.circleMarker(Industry, {
-//                                 // Stroke properties
-//                                 color: '#5EA4D4',
-//                                 opacity: 0.75,
-//                                 weight: 2,
-//
-//                                 // Fill properties
-//                                 fillColor: lookupIndustry (feature.properties.Industry).color,
-//                                 fillOpacity: 0.25,
-//                                 radius: 2
-//       });
-//     }
-//     }).addTo(map);
-//   })
-    // onEachFeature: function(feature, layer) {
-    //   const description = lookupIndustry(feature.properties.Industry).description;
-    //
-    //   layer.bindPopup(`${feature.properties.BusinessName}<br/>${description}`, {
-    //     closeButton: false,
-    //     minWidth: 60,
-    //     offset: [0, -10]
-    //   });
-    //   layer.on('mouseover', function (e) {
-    //     this.openPopup();
-    //
-    //     e.target.setStyle({
-    //       weight: 3,
-    //       color: '#FFF',
-    //     });
-    //
-    //     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    //         layer.bringToFront();
-    //     }
-    //   });
-    //   layer.on('mouseout', function (e) {
-    //     this.closePopup();
-    //     blocksGeojson.resetStyle(e.target);
