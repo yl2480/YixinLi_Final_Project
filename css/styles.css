@@ -8,10 +8,10 @@ height: 800px;
    bottom: 5px;
    left: 5px;
    background: #FFF;
-   /* padding: 10px; */
+   padding: 12px;
    border-radius: 7px;
    height: 200px;
-   width: 500px;
+   width: 545px;
  }
 
 #legend {
