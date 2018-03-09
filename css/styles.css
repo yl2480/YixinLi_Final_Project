@@ -4,14 +4,14 @@ height: 800px;
 
 #title-container {
    position: absolute;
-   z-index: 1000;
+   z-index: 900;
    bottom: 5px;
    left: 5px;
    background: #FFF;
-   padding: 12px;
+   /* padding: 10px; */
    border-radius: 7px;
    height: 200px;
-   width: 550px;
+   width: 500px;
  }
 
 #legend {
